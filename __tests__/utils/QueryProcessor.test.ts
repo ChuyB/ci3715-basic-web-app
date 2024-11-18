@@ -37,8 +37,8 @@ describe("QueryProcessor", () => {
   })
 
   test("should return the sum of the numbers", () => {
-    const query = "sum of 10, 9, 8";
+    const query = "9 plus 8";
     const response: string = QueryProcessor(query);
-    expect(response).toBe("27");
+    expect(response).toBe("17");
   });
 });

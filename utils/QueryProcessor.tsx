@@ -22,7 +22,7 @@ export default function QueryProcessor(query: string): string {
     }
   }
 
-  if (query.toLowerCase().includes("sum")) {
+  if (query.toLowerCase().includes("plus")) {
     const numbers = query.match(/\d+/g);
     if (numbers) {
       return numbers
