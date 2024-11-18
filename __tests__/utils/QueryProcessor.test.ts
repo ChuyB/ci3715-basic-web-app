@@ -61,4 +61,10 @@ describe("QueryProcessor", () => {
     expect(response).toBe("64");
   });
 
+  test("should determine what of the numbers are primes", () => {
+    const query = "Which of the following numbers are primes: 33, 17, 25, 37, 26?";
+    const response: string = QueryProcessor(query);
+    expect(response).toBe("17, 37");
+  })
+
 });

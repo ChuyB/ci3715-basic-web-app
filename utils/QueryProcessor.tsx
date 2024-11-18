@@ -49,14 +49,31 @@ export default function QueryProcessor(query: string): string {
     }
   }
 
-  if (query.toLowerCase().includes("both square and cube")) {
+  if (query.toLowerCase().includes("both a square and a cube")) {
     const numbers = query.match(/\d+/g);
     if (numbers) {
       for (let i = 0; i < numbers.length; i++) {
-        if (Math.sqrt(Number(numbers[i])) === Math.cbrt(Number(numbers[i]))) {
+        if (
+          Number.isInteger(Math.sqrt(Number(numbers[i]))) &&
+          Number.isInteger(Math.cbrt(Number(numbers[i])))
+        ) {
           return numbers[i];
         }
       }
+    }
+  }
+
+  if (query.toLowerCase().includes("primes")) {
+    const numbers = query.match(/\d+/g);
+    if (numbers) {
+      const primes = numbers.filter((number) => {
+        if (Number(number) < 2) return false;
+        for (let i = 2; i < Number(number); i++) {
+          if (Number(number) % i === 0) return false;
+        }
+        return true;
+      });
+      return primes.join(", ");
     }
   }
 
