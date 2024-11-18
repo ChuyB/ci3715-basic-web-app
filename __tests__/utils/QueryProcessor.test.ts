@@ -36,9 +36,15 @@ describe("QueryProcessor", () => {
     expect(response).toBe("10");
   })
 
-  test("should return the sum of the numbers", () => {
+  test("should return the sum of two numbers", () => {
     const query = "9 plus 8";
     const response: string = QueryProcessor(query);
     expect(response).toBe("17");
   });
+
+  test("should return the multiplication of two numbers", () => {
+    const query = "9 multiplied by 8";
+    const response: string = QueryProcessor(query);
+    expect(response).toBe("72"); 
+  })
 });
