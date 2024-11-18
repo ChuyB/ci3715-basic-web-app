@@ -15,5 +15,12 @@ export default function QueryProcessor(query: string): string {
     return "Jesus Bovea";
   }
 
+  if (query.toLowerCase().includes("largest")) {
+    const numbers = query.match(/\d+/g);
+    if (numbers) {
+      return Math.max(...numbers.map(Number)).toString();
+    }
+  }
+
   return "";
 }

@@ -29,4 +29,10 @@ describe("QueryProcessor", () => {
     const response: string = QueryProcessor(query);
     expect(response).toBe("Jesus Bovea");
   });
+
+  test("should return the largest number", () => {
+    const query = "largest in 10, 9, 8";
+    const response: string = QueryProcessor(query);
+    expect(response).toBe("10");
+  })
 });
