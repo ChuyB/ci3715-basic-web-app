@@ -47,4 +47,10 @@ describe("QueryProcessor", () => {
     const response: string = QueryProcessor(query);
     expect(response).toBe("72"); 
   })
+
+  test("should determine what number is both squared and cube", () => {
+    const query = "what number is both square and a cube: 1, 3, 5, 890";
+    const response: string = QueryProcessor(query);
+    expect(response).toBe("1");
+  });
 });
