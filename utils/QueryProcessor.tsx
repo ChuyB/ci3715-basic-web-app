@@ -22,5 +22,15 @@ export default function QueryProcessor(query: string): string {
     }
   }
 
+  if (query.toLowerCase().includes("sum")) {
+    const numbers = query.match(/\d+/g);
+    if (numbers) {
+      return numbers
+        .map(Number)
+        .reduce((acc, curr) => acc + curr)
+        .toString();
+    }
+  }
+
   return "";
 }
