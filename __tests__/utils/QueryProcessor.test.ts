@@ -34,7 +34,7 @@ describe("QueryProcessor", () => {
     const query = "largest in 10, 9, 8";
     const response: string = QueryProcessor(query);
     expect(response).toBe("10");
-  })
+  });
 
   test("should return the sum of two numbers", () => {
     const query = "9 plus 8";
@@ -42,15 +42,23 @@ describe("QueryProcessor", () => {
     expect(response).toBe("17");
   });
 
+  test("should return the substraction of two numbers", () => {
+    const query = "9 minus 8";
+    const response: string = QueryProcessor(query);
+    expect(response).toBe("1");
+  })
+
   test("should return the multiplication of two numbers", () => {
     const query = "9 multiplied by 8";
     const response: string = QueryProcessor(query);
-    expect(response).toBe("72"); 
-  })
-
-  test("should determine what number is both squared and cube", () => {
-    const query = "what number is both square and a cube: 1, 3, 5, 890";
-    const response: string = QueryProcessor(query);
-    expect(response).toBe("1");
+    expect(response).toBe("72");
   });
+
+  test("should determine what number is both square and cube", () => {
+    const query =
+      "Which of the following numbers is both a square and a cube: 4356, 1121, 539, 8, 3011, 2852, 64";
+    const response: string = QueryProcessor(query);
+    expect(response).toBe("64");
+  });
+
 });

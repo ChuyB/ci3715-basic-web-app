@@ -32,6 +32,13 @@ export default function QueryProcessor(query: string): string {
     }
   }
 
+  if (query.toLowerCase().includes("minus")) {
+    const numbers = query.match(/\d+/g);
+    if (numbers) {
+      return (Number(numbers[0]) - Number(numbers[1])).toString();
+    }
+  }
+
   if (query.toLowerCase().includes("multiplied")) {
     const numbers = query.match(/\d+/g);
     if (numbers) {
@@ -42,7 +49,7 @@ export default function QueryProcessor(query: string): string {
     }
   }
 
-  if (query.toLowerCase().includes("square and a cube")) {
+  if (query.toLowerCase().includes("both square and cube")) {
     const numbers = query.match(/\d+/g);
     if (numbers) {
       for (let i = 0; i < numbers.length; i++) {
